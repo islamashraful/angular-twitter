@@ -40,4 +40,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  onPageChanged(currentPage: number) {
+    console.log('onPageChanged', currentPage)
+  }
 }

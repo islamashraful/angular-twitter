@@ -1,0 +1,14 @@
+ngb-pagination li {
+    .page-link {
+        margin-right: 15px;
+        color: #000000;
+    }
+    &.page-item {
+        &:last-child {
+            .page-link {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+    } 
+  }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 /**
  * Pagination Component
@@ -23,6 +23,11 @@ export class PaginationComponent implements OnInit {
    * Number of items per page
    */
   @Input() pageSize: number;
+
+  /**
+   * Emit event with page change
+   */
+  @Output() pageChanged = new EventEmitter();
 
   constructor() { }
 
