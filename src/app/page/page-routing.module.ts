@@ -1,17 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
-import { HomeComponent } from './home/home.component';
+import { HashtagSearchComponent } from './layout/hashtag-search/hashtag-search.component';
+import { UserSearchComponent } from './layout/user-search/user-search.component';
 
-const routes: Routes = [{
-    path: '',
-    component: LayoutComponent,
-    children: [{
+const routes: Routes = [
+    {
         path: '',
-        component: HomeComponent
+        component: LayoutComponent,
+        children: [
+            {
+                path: '',
+                component: HashtagSearchComponent
+            },
+            {
+                path: 'hashtag-search',
+                component: HashtagSearchComponent
+            },
+            {
+                path: 'user-search',
+                component: UserSearchComponent
+            }
+        ]
     },
-    ]
-}];
+
+];
 
 @NgModule({
     imports: [
