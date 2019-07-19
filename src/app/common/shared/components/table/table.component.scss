@@ -1,7 +1,11 @@
+@import '../../../../../scss/component/colors';
+
 .table {
     margin-bottom: 50px;
     th {
         border-top: none;
+        color: $alto-color;
+        font-weight: normal;
     }
     thead {
         th {
@@ -11,7 +15,7 @@
     tr {
         &:last-child {
             td {
-                border-bottom: 1px solid #dee2e6; 
+                border-bottom: 1px solid $geyser-color; 
             }
         }
     }

@@ -1,9 +1,11 @@
+@import '../component/colors';
+
 ngb-pagination li {
     .page-link {
         margin-right: 15px;
-        color: #000000;
+        color: $black-color;
         &:hover {
-            color: #17a2b8;
+            color: $mixed-blue-color;
         }
     }
     &.page-item {
@@ -21,8 +23,8 @@ ngb-pagination li {
         }
         &.active {
             .page-link {
-                border-color: #17a2b8;
-                background-color: #17a2b8;
+                border-color: $mixed-blue-color;
+                background-color: $mixed-blue-color;
             }
         }
     } 

@@ -1,3 +1,5 @@
+@import '../../../scss/component/colors';
+
 .top-heading-wrapper {
     padding-left: 30px;
 }
@@ -5,15 +7,15 @@
     border-bottom: none;
     .nav-link {
         border-radius: 0;
-        color: #000;
-        border-bottom: none; 
+        color: $black-color;
+        border: none; 
         &.active {
-            background-color: #dee2e6;
-            color: #17a2b8
+            background-color: $athens-gray;
+            color: $mixed-blue-color
         }
     }
 }
 .router-outlet-wrapper {
-    background-color: #dee2e6;
+    background-color: $athens-gray;
     padding: 25px 30px 70px;
 }

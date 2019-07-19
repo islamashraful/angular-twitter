@@ -1,3 +1,9 @@
-<app-table [data]="data" [columns]="columns"></app-table>
-<app-pagination [total]="40" [currentPage]="3" [pageSize]="5" (pageChanged)="onPageChanged($event)">
-</app-pagination>
+<label>Hashtag search</label>
+<div class="form-group search">
+    <input type="text" class="form-control" placeholder="Search by Hashtag"> <i class="fa fa-search search-icon"></i>
+</div>
+<div class="table-wrapper">
+    <app-table [data]="data" [columns]="columns"></app-table>
+    <app-pagination [total]="40" [currentPage]="3" [pageSize]="5" (pageChanged)="onPageChanged($event)">
+    </app-pagination>
+</div>
