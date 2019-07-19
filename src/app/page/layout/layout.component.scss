@@ -1,0 +1,19 @@
+.top-heading-wrapper {
+    padding-left: 30px;
+}
+.nav-tabs {
+    border-bottom: none;
+    .nav-link {
+        border-radius: 0;
+        color: #000;
+        border-bottom: none; 
+        &.active {
+            background-color: #dee2e6;
+            color: #17a2b8
+        }
+    }
+}
+.router-outlet-wrapper {
+    background-color: #dee2e6;
+    padding: 25px 30px 70px;
+}
