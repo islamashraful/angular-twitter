@@ -2,12 +2,27 @@ ngb-pagination li {
     .page-link {
         margin-right: 15px;
         color: #000000;
+        &:hover {
+            color: #17a2b8;
+        }
     }
     &.page-item {
         &:last-child {
             .page-link {
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
+            }
+        }
+        &:first-child {
+            .page-link {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+        &.active {
+            .page-link {
+                border-color: #17a2b8;
+                background-color: #17a2b8;
             }
         }
     } 
