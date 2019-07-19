@@ -10,11 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HashtagSearchComponent implements OnInit {
   columns = [
-    { field: 'text', header: 'Tweet' },
-    { field: 'likes', header: 'Likes' },
-    { field: 'replies', header: 'Replies' },
-    { field: 'retweets', header: 'Retweets' },
-    { field: 'hashtags', header: 'Rashtags' },
+    { field: 'text', header: 'Tweet', useEllipsis: true, columnStyles: { width: '30%' } },
+    { field: 'likes', header: 'Likes', columnStyles: { color: '#d3d3d3' } },
+    { field: 'replies', header: 'Replies', columnStyles: { color: '#d3d3d3' } },
+    { field: 'retweets', header: 'Retweets', columnStyles: { color: '#d3d3d3' } },
+    { field: 'hashtags', header: 'Hashtags' },
     { field: 'date', header: 'Date' },
   ];
 

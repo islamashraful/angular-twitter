@@ -8,8 +8,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let item of data; index as i">
-            <td *ngFor="let col of columns">
-                {{item[col.field]}}
+            <td *ngFor="let col of columns" [ngStyle]="col.columnStyles">
+                {{col.useEllipsis ? (item[col.field] | ellipsis) : item[col.field]}}
             </td>
         </tr>
     </tbody>

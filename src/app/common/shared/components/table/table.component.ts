@@ -8,6 +8,10 @@ export interface IColumn {
   field: string;
   /** Header */
   header: string;
+  /** Use ellipsis on column value */
+  useEllipsis?: boolean,
+  /** Styles attached with the cell */
+  columnStyles?: Object
 }
 
 /**
