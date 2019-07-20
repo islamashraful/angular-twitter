@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+const cellColor = '#d3d3d3';
+
 /**
  * Hashtag Search Component
  */
@@ -11,9 +13,9 @@ import { Component, OnInit } from '@angular/core';
 export class HashtagSearchComponent implements OnInit {
   columns = [
     { field: 'text', header: 'Tweet', useEllipsis: true, columnStyles: { width: '30%' } },
-    { field: 'likes', header: 'Likes', columnStyles: { color: '#d3d3d3' } },
-    { field: 'replies', header: 'Replies', columnStyles: { color: '#d3d3d3' } },
-    { field: 'retweets', header: 'Retweets', columnStyles: { color: '#d3d3d3' } },
+    { field: 'likes', header: 'Likes', columnStyles: { color: cellColor } },
+    { field: 'replies', header: 'Replies', columnStyles: { color: cellColor } },
+    { field: 'retweets', header: 'Retweets', columnStyles: { color: cellColor } },
     { field: 'hashtags', header: 'Hashtags' },
     { field: 'date', header: 'Date' },
   ];
