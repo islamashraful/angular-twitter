@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CoreHelpers } from 'src/app/common/utility/helpers/core.helpers';
+import { CoreHelpers } from '../../../common/utility/helpers/core.helpers';
+import { DataService } from '../../../common/utility/services/data/data.service';
 
 const cellColor = '#d3d3d3';
 
@@ -802,9 +803,15 @@ export class HashtagSearchComponent implements OnInit {
 
   pageSize = 10;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.getTweetsByHashtag('aws').subscribe(res => {
+      console.log(res)
+    }, err => {
+      console.log('err', err)
+    });
+
     this.data = mockData.map(item => ({
       text: item.text,
       likes: item.likes,
