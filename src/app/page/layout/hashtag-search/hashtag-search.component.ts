@@ -801,18 +801,29 @@ export class HashtagSearchComponent implements OnInit {
 
   currentPage: number = 1;
 
-  pageSize = 10;
+  pageSize: number = 10;
+
+  loading: boolean = true;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getTweetsByHashtag('aws').subscribe(res => {
-      console.log(res)
+      this.preparePagedData(res);
+      this.loading = false;
     }, err => {
       console.log('err', err)
     });
+  }
 
-    this.data = mockData.map(item => ({
+  onPageChanged(currentPage: number) {
+    this.currentPage = currentPage;
+
+    this.pagedData = CoreHelpers.paginate(currentPage, this.pageSize, this.data);
+  }
+
+  preparePagedData(response: any) {
+    this.data = response.map(item => ({
       text: item.text,
       likes: item.likes,
       replies: item.replies,
@@ -822,12 +833,6 @@ export class HashtagSearchComponent implements OnInit {
     }));
 
     this.pagedData = CoreHelpers.paginate(this.currentPage, this.pageSize, this.data);
-  }
-
-  onPageChanged(currentPage: number) {
-    this.currentPage = currentPage;
-
-    this.pagedData = CoreHelpers.paginate(currentPage, this.pageSize, this.data);
   }
 
 }
