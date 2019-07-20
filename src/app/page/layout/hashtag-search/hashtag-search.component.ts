@@ -776,8 +776,6 @@ const mockData = [
 
 const hashtag = 'aws';
 
-const pageSize = 10;
-
 /**
  * Hashtag Search Component
  */
@@ -802,6 +800,8 @@ export class HashtagSearchComponent implements OnInit {
 
   currentPage: number = 1;
 
+  pageSize = 10;
+
   constructor() { }
 
   ngOnInit() {
@@ -814,13 +814,13 @@ export class HashtagSearchComponent implements OnInit {
       date: CoreHelpers.longDate(item.date)
     }));
 
-    this.pagedData = CoreHelpers.paginate(this.currentPage, pageSize, this.data);
+    this.pagedData = CoreHelpers.paginate(this.currentPage, this.pageSize, this.data);
   }
 
   onPageChanged(currentPage: number) {
     this.currentPage = currentPage;
 
-    this.pagedData = CoreHelpers.paginate(currentPage, pageSize, this.data);
+    this.pagedData = CoreHelpers.paginate(currentPage, this.pageSize, this.data);
   }
 
 }
