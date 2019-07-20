@@ -3,7 +3,8 @@
     <input type="text" class="form-control" placeholder="Search by Hashtag"> <i class="fa fa-search search-icon"></i>
 </div>
 <div class="table-wrapper">
-    <app-table [data]="data" [columns]="columns"></app-table>
-    <app-pagination [total]="40" [currentPage]="3" [pageSize]="5" (pageChanged)="onPageChanged($event)">
+    <app-table [data]="pagedData" [columns]="columns"></app-table>
+    <app-pagination [total]="data.length" [currentPage]="currentPage" [pageSize]="pageSize"
+        (pageChanged)="onPageChanged($event)">
     </app-pagination>
 </div>
