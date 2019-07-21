@@ -11,7 +11,8 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                component: HashtagSearchComponent
+                redirectTo: '/hashtag-search',
+                pathMatch: 'full'
             },
             {
                 path: 'hashtag-search',
@@ -20,7 +21,8 @@ const routes: Routes = [
             {
                 path: 'user-search',
                 component: UserSearchComponent
-            }
+            },
+            { path: '**', redirectTo: '/hashtag-search' }
         ]
     },
 

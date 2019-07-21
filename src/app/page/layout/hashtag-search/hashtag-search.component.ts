@@ -59,7 +59,7 @@ export class HashtagSearchComponent implements OnInit, OnDestroy {
   loading: boolean = false;
 
   /**
-   * Subscription reference of the sobservable
+   * Subscription reference of observable
    */
   private subscription: Subscription;
 
