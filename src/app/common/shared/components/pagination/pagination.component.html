@@ -1,5 +1,7 @@
-<ngb-pagination [collectionSize]="total" [(page)]="currentPage" [pageSize]="pageSize" aria-label="Default pagination"
-    (pageChange)="pageChanged.emit($event)">
-    <ng-template ngbPaginationPrevious>&lt;</ng-template>
-    <ng-template ngbPaginationNext>&gt;</ng-template>
-</ngb-pagination>
+<ng-container *ngIf="total > pageSize">
+    <ngb-pagination [collectionSize]="total" [(page)]="currentPage" [pageSize]="pageSize"
+        aria-label="Default pagination" (pageChange)="pageChanged.emit($event)">
+        <ng-template ngbPaginationPrevious>&lt;</ng-template>
+        <ng-template ngbPaginationNext>&gt;</ng-template>
+    </ngb-pagination>
+</ng-container>
