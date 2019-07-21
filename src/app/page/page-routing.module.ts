@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppView } from '../common/utility/enums/view';
 import { LayoutComponent } from './layout/layout.component';
 import { TweetsComponent } from './layout/tweets/tweets.component';
+import { AppView } from '../common/utility/enums/app-view';
 
 const routes: Routes = [
     {

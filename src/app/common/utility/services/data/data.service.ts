@@ -20,4 +20,12 @@ export class DataService {
   getTweetsByHashtag(hashtag: string): Observable<any> {
     return this.http.get(`${env.api}/hashtags/${hashtag}?pages_limit=3&wait=0`);
   }
+
+  /**
+   * Get tweets by user
+   * @param user 
+   */
+  getTweetsByUser(user: string): Observable<any> {
+    return this.http.get(`${env.api}/users/${user}?pages_limit=3&wait=0`);
+  }
 }

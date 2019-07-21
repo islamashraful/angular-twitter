@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { fromEvent, Subscription } from 'rxjs';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { map, startWith, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { CoreHelpers } from '../../../common/utility/helpers/core.helpers';
 import { DataService } from '../../../common/utility/services/data/data.service';
 import { ITweet } from '../tweets/tweets.component';
+import { AppView } from '../../../common/utility/enums/app-view';
 
 const cellColor = '#d3d3d3';
 
@@ -74,6 +75,20 @@ export class TweetsComponent implements OnInit, OnDestroy {
   loading: boolean = false;
 
   /**
+   * Component configuration
+   */
+  configuration: {
+    /** Search placeholder */
+    placeholder: string,
+    /** Search title */
+    title: string,
+    /** Initial text for search */
+    initialSearchInput: string,
+    /** Method reference for api call from data service */
+    getTweets: Function
+  };
+
+  /**
    * Subscription reference of observable
    */
   private subscription: Subscription;
@@ -82,9 +97,31 @@ export class TweetsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.resetData();
+
+    this.initData();
   }
 
-  ngAfterViewInit(): void {
+  initData() {
+    if (this.route.routeConfig.path === AppView.HASHTAG_SEARCH) {
+      this.configuration = {
+        title: 'Hashtag search',
+        placeholder: 'Search by Hashtag',
+        initialSearchInput: 'Python',
+        getTweets: this.dataService.getTweetsByHashtag.bind(this.dataService)
+      };
+    } else {
+      this.configuration = {
+        title: 'User search',
+        placeholder: 'Search by User',
+        initialSearchInput: 'Twitter',
+        getTweets: this.dataService.getTweetsByUser.bind(this.dataService)
+      }
+    }
+  }
+
+  ngAfterViewInit() {
+    this.searchInput.nativeElement.value = this.configuration.initialSearchInput;
+
     const searchInput = this.searchInput.nativeElement;
 
     const searchTerms$ = fromEvent<any>(searchInput, 'keyup')
@@ -100,7 +137,7 @@ export class TweetsComponent implements OnInit, OnDestroy {
         term => {
           this.loading = true;
           if (term) {
-            this.dataService.getTweetsByHashtag(term).subscribe(res => {
+            this.configuration.getTweets(term).subscribe(res => {
               this.preparePagedData(res);
               this.loading = false;
             }, err => {
@@ -135,11 +172,17 @@ export class TweetsComponent implements OnInit, OnDestroy {
   filterTweets(tweets: ITweet[]) {
     const searchInput = CoreHelpers.formatHashtag(this.searchInput.nativeElement.value);
 
-    return tweets.filter(t =>
-      t.hashtags.some(item =>
-        item.toLowerCase() === `#${searchInput.toLowerCase()}`
-      )
-    );
+    if (this.route.routeConfig.path === AppView.HASHTAG_SEARCH) {
+      return tweets.filter(t =>
+        t.hashtags.some(item =>
+          item.toLowerCase() === `#${searchInput.toLowerCase()}`
+        )
+      );
+    } else {
+      return tweets.filter(t =>
+        t.account.fullname.toLowerCase() === searchInput.toLowerCase()
+      );
+    }
   }
 
   /**
