@@ -1,1 +1,16 @@
-<p>tweets works!</p>
+<label>Hashtag search</label>
+<div class="form-group search">
+    <input type="text" class="form-control" placeholder="Search by Hashtag" #searchInput value="aws">
+    <i class="fa fa-search search-icon"></i>
+</div>
+<div class="loader-wrapper" *ngIf="loading; else dataLoaded">
+    <div class="loader"></div>
+</div>
+<ng-template #dataLoaded>
+    <div class="table-wrapper">
+        <app-table [data]="pagedData" [columns]="columns"></app-table>
+        <app-pagination [total]="data.length" [currentPage]="currentPage" [pageSize]="pageSize"
+            (pageChanged)="onPageChanged($event)">
+        </app-pagination>
+    </div>
+</ng-template>

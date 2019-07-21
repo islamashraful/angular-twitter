@@ -1,0 +1,46 @@
+@import '../../../../scss/component/colors';
+
+.search {
+    margin-bottom: 30px;
+    width: 250px;
+    position: relative;
+    .form-control {
+        border-radius: 0;
+        border-color: $alto-color;
+    }
+}
+.table-wrapper {
+    padding: 0 20px 15px;
+    background-color: $white-color;
+}
+.search-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: $alto-color;
+}
+.loader-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 315px;
+}
+.loader {
+    border: 16px solid $geyser-color;
+    border-radius: 50%;
+    border-top: 16px solid $mixed-blue-color;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+  
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AppView } from '../common/utility/enums/view';
 import { LayoutComponent } from './layout/layout.component';
-import { HashtagSearchComponent } from './layout/hashtag-search/hashtag-search.component';
-import { UserSearchComponent } from './layout/user-search/user-search.component';
+import { TweetsComponent } from './layout/tweets/tweets.component';
 
 const routes: Routes = [
     {
@@ -11,16 +11,16 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: '/hashtag-search',
+                redirectTo: AppView.HASHTAG_SEARCH,
                 pathMatch: 'full'
             },
             {
-                path: 'hashtag-search',
-                component: HashtagSearchComponent
+                path: AppView.HASHTAG_SEARCH,
+                component: TweetsComponent
             },
             {
-                path: 'user-search',
-                component: UserSearchComponent
+                path: AppView.USER_SEARCH,
+                component: TweetsComponent
             },
             { path: '**', redirectTo: '/hashtag-search' }
         ]
