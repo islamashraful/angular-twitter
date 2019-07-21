@@ -8,9 +8,10 @@ import { TableComponent } from '../common/shared/components/table/table.componen
 import { PaginationComponent } from '../common/shared/components/pagination/pagination.component';
 import { HashtagSearchComponent } from './layout/hashtag-search/hashtag-search.component';
 import { UserSearchComponent } from './layout/user-search/user-search.component';
+import { TweetsComponent } from './layout/tweets/tweets.component';
 
 @NgModule({
-    declarations: [LayoutComponent, TableComponent, PaginationComponent, HashtagSearchComponent, UserSearchComponent],
+    declarations: [LayoutComponent, TableComponent, PaginationComponent, HashtagSearchComponent, UserSearchComponent, TweetsComponent],
     imports: [
         CommonModule,
         PageRoutingModule,

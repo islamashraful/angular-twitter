@@ -3,15 +3,12 @@
  */
 export class CoreHelpers {
     /**
-     * Exact match hashtags with the given hashtag string.
-     * Returns first two hashtags from hashtag collection 
-     * @param hashtags 
-     * @param match 
+     * Parse first two hashtags from the given hashtags array.
+     * Returns first two hashtags as a comma separated value
+     * @param hashtags
      */
-    static matchHashtag(hashtags: string[], match: string): string {
-        const matchFound = hashtags.some(item => item.toLocaleLowerCase() === `#${match.toLocaleLowerCase()}`);
-
-        return matchFound ? hashtags.splice(0, 2).join(', ') : null;
+    static parseHashtag(hashtags: string[]): string {
+        return hashtags.splice(0, 2).join(', ');
     }
 
     /**
@@ -38,5 +35,13 @@ export class CoreHelpers {
         const startIndex = endPoint - pageSize;
 
         return items.slice(startIndex, endPoint);
+    }
+
+    /**
+     * Replace zero with a dash
+     * @param number 
+     */
+    static replaceZeroWithDash(number: number) {
+        return number > 0 ? number : '-';
     }
 }
