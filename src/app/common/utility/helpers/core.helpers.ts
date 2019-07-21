@@ -44,4 +44,12 @@ export class CoreHelpers {
     static replaceZeroWithDash(number: number) {
         return number > 0 ? number : '-';
     }
+
+    /**
+     * Remove special symbols and spaces from hashtag
+     * @param hashtag 
+     */
+    static formatHashtag(hashtag: string): string {
+        return hashtag.replace(/[^A-Z0-9]+/ig, "");
+    }
 }

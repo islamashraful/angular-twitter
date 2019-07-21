@@ -70,10 +70,12 @@ export class HashtagSearchComponent implements OnInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    const searchTerms$ = fromEvent<any>(this.searchInput.nativeElement, 'keyup')
+    const searchInput = this.searchInput.nativeElement;
+
+    const searchTerms$ = fromEvent<any>(searchInput, 'keyup')
       .pipe(
-        map(event => event.target.value),
-        startWith(this.searchInput.nativeElement.value),
+        map(event => CoreHelpers.formatHashtag(event.target.value)),
+        startWith(searchInput.value),
         debounceTime(1000),
         distinctUntilChanged()
       );
@@ -116,7 +118,7 @@ export class HashtagSearchComponent implements OnInit, OnDestroy {
    * @param tweets 
    */
   filterTweetsByHashtag(tweets: ITweet[]) {
-    const searchInput = this.searchInput.nativeElement.value;
+    const searchInput = CoreHelpers.formatHashtag(this.searchInput.nativeElement.value);
 
     return tweets.filter(t =>
       t.hashtags.some(item =>
