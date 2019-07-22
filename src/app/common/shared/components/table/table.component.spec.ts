@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableComponent } from './table.component';
+import { EllipsisPipe } from 'src/app/common/utility/pipes/ellipsis/ellipsis.pipe';
 
 describe('TableComponent', () => {
   let component: TableComponent;
@@ -8,18 +9,21 @@ describe('TableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableComponent ]
+      declarations: [TableComponent, EllipsisPipe]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TableComponent);
     component = fixture.componentInstance;
+    component.data = [];
+    component.columns = [];
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  /** Smoke test */
+  it('renders without crushing', () => {
     expect(component).toBeTruthy();
   });
 });

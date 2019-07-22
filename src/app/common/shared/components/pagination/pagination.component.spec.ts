@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaginationComponent } from './pagination.component';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('PaginationComponent', () => {
   let component: PaginationComponent;
@@ -8,9 +9,10 @@ describe('PaginationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PaginationComponent ]
+      declarations: [PaginationComponent],
+      imports: [NgbPaginationModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +21,8 @@ describe('PaginationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  /** Smoke test */
+  it('renders without crushing', () => {
     expect(component).toBeTruthy();
   });
 });

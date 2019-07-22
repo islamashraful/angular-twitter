@@ -92,15 +92,15 @@ export class TweetsComponent implements OnInit, OnDestroy {
    */
   private subscription: Subscription;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) { }
+  constructor(private dataService: DataService, public route: ActivatedRoute) { }
 
   ngOnInit() {
     this.resetData();
 
-    this.initData();
+    this.initConfig();
   }
 
-  initData() {
+  initConfig() {
     if (this.route.routeConfig.path === AppView.HASHTAG_SEARCH) {
       this.configuration = {
         title: 'Hashtag search',
@@ -114,7 +114,7 @@ export class TweetsComponent implements OnInit, OnDestroy {
         placeholder: 'Search by User',
         initialSearchInput: 'Twitter',
         getTweets: this.dataService.getTweetsByUser.bind(this.dataService)
-      }
+      };
     }
   }
 
