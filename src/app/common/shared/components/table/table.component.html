@@ -2,21 +2,23 @@
     <div class="loader"></div>
 </div>
 <ng-template #dataLoaded>
-    <table class="table" *ngIf="data.length">
-        <thead>
-            <tr>
-                <th scope="col" *ngFor="let col of columns">
-                    {{col.header}}
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of data; index as i">
-                <td *ngFor="let col of columns" [ngStyle]="col.columnStyles">
-                    {{col.useEllipsis ? (item[col.field] | ellipsis) : item[col.field]}}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table" *ngIf="data.length">
+            <thead>
+                <tr>
+                    <th scope="col" *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data; index as i">
+                    <td *ngFor="let col of columns" [ngStyle]="col.columnStyles">
+                        {{col.useEllipsis ? (item[col.field] | ellipsis) : item[col.field]}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <p class="empty-data-message" *ngIf="!data.length">No data found</p>
 </ng-template>
