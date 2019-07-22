@@ -1,5 +1,8 @@
 @import '../../../../scss/component/colors';
 
+.search-label {
+    color: $alto-color;
+}
 .search {
     margin-bottom: 30px;
     width: 250px;
@@ -41,4 +44,14 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $alto-color;
+    opacity: 0.5; /* Firefox */
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $alto-color;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: $alto-color;
 }
