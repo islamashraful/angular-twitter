@@ -2,10 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/co
 import { fromEvent, Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map, startWith, debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { CoreHelpers } from '../../../common/utility/helpers/core.helpers';
-import { DataService } from '../../../common/utility/services/data/data.service';
-import { ITweet } from '../tweets/tweets.component';
-import { AppView } from '../../../common/utility/enums/app-view';
+import { AppView } from '../../common/utility/enums/app-view';
+import { CoreHelpers } from '../../common/utility/helpers/core.helpers';
+import { DataService } from '../../common/utility/services/data/data.service';
 
 const cellColor = '#d3d3d3';
 

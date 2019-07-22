@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { EllipsisPipe } from './pipes/ellipsis/ellipsis.pipe';
 import { DataService } from './services/data/data.service';
 
-
 @NgModule({
     imports: [
         CommonModule,

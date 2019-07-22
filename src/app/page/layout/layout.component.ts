@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 /**
  * Layout Component
- * A wrapper component for all other page
+ * A wrapper component for all other page components
  */
 @Component({
   selector: 'app-layout',

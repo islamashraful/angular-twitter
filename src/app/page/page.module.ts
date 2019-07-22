@@ -6,7 +6,7 @@ import { UtilityModule } from '../common/utility/utility.module';
 import { LayoutComponent } from './layout/layout.component';
 import { TableComponent } from '../common/shared/components/table/table.component';
 import { PaginationComponent } from '../common/shared/components/pagination/pagination.component';
-import { TweetsComponent } from './layout/tweets/tweets.component';
+import { TweetsComponent } from './tweets/tweets.component';
 
 @NgModule({
     declarations: [LayoutComponent, TableComponent, PaginationComponent, TweetsComponent],
