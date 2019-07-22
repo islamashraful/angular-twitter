@@ -7,7 +7,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Other third party libraries used in this applications are listed below:
  - [Font Awesome](https://fontawesome.com/v4.7.0)
  - [ng-bootstrap](https://ng-bootstrap.github.io/#/getting-started)
- -  [Crome extension to allow CORS](https://waa.ai/aCw4)
+
+
+> **Note:** Use [this](https://waa.ai/aCw4) crome extension to allow CORS while testing the application
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
