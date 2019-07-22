@@ -196,7 +196,7 @@ export class TweetsComponent implements OnInit, OnDestroy {
       likes: CoreHelpers.replaceZeroWithDash(item.likes),
       replies: CoreHelpers.replaceZeroWithDash(item.replies),
       retweets: CoreHelpers.replaceZeroWithDash(item.retweets),
-      hashtags: CoreHelpers.parseHashtag(item.hashtags),
+      hashtags: CoreHelpers.filterHashtag(item.hashtags),
       date: CoreHelpers.longDate(item.date)
     }));
 

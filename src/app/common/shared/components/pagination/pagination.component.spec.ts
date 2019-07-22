@@ -22,7 +22,7 @@ describe('PaginationComponent', () => {
   });
 
   /** Smoke test */
-  it('renders without crushing', () => {
+  it('should render without crushing', () => {
     expect(component).toBeTruthy();
   });
 });

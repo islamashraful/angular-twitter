@@ -3,11 +3,11 @@
  */
 export class CoreHelpers {
     /**
-     * Parse first two hashtags from the given hashtags array.
+     * Get first two hashtags from the given hashtags array.
      * Returns first two hashtags as a comma separated value
      * @param hashtags
      */
-    static parseHashtag(hashtags: string[]): string {
+    static filterHashtag(hashtags: string[]): string {
         return hashtags.splice(0, 2).join(', ');
     }
 

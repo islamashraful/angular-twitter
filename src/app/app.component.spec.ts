@@ -15,7 +15,7 @@ describe('AppComponent', () => {
   }));
 
   /** Smoke test */
-  it('renders without crushing', () => {
+  it('should render without crushing', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();

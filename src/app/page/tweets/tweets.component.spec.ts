@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+
+import { ActivatedRoute } from '@angular/router';
 import { EllipsisPipe } from '../../common/utility/pipes/ellipsis/ellipsis.pipe';
 import { TweetsComponent } from './tweets.component';
 import { TableComponent } from '../../common/shared/components/table/table.component';
@@ -38,7 +39,7 @@ describe('TweetsComponent', () => {
   });
 
   /** Smoke test */
-  it('renders without crushing', () => {
+  it('should render without crushing', () => {
     expect(component).toBeTruthy();
   });
 });
